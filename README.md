@@ -5,11 +5,14 @@
 ### Database Setup
 1. Create the PostgreSQL database in which the Poisson, word count vectors will
 be stored:
+
 ```shell
 $ createdb en.wikipedia.org
 $ psql -d en.wikipedia.org
 ```
+
 2. Initialize the database schema:
+
 ```sql
 CREATE TABLE terms (
 	id serial PRIMARY KEY,
