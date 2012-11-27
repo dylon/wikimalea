@@ -1,14 +1,14 @@
 # Wikimalea
 
-### Download the English, Wikipedia Corpus
-
 ### Database Setup
+
 1. Create the PostgreSQL database in which the Poisson, word count vectors will
 be stored:
 
 ```shell
-$ createdb en.wikipedia.org
-$ psql -d en.wikipedia.org
+$ createdb wikimalea
+$ createuser wikimalea
+$ psql -d wikimalea -U wikimalea
 ```
 
 2. Initialize the database schema:
@@ -34,3 +34,27 @@ CREATE TABLE term_frequencies (
 	CHECK (frequency >= 0)
 );
 ```
+
+### Download the English, Wikipedia Corpus
+
+1. Ensure that the `resources/` directory is present:
+
+```shell
+$ mkdir resources/
+```
+
+2. Download the latest archive of the English, Wikipedia corpus:
+
+```shell
+$ cd resources/
+$ wget -c http://download.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2
+```
+
+3. Unpack the archive:
+
+```shell
+$ bunzip2 enwiki-latest-pages-articles.xml.bz2
+```
+
+4. That's it!
+
